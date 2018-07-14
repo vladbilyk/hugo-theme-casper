@@ -34,6 +34,10 @@
 
     <title>{{ if ne .URL "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
 
+    {{ if .Site.Params.logo }}
+    <link rel="shortcut icon" href="{{ .Site.Params.logo | relURL }}" type="image/png">
+    {{ end }}
+
     {{ if .IsPage }}
     <meta name="description" content="{{ .Description | default (substr .Summary 0 160) }}" />
     {{ else }}
